@@ -197,16 +197,27 @@ POSIX Options 	Significance
 
 Example
 #ps -ef
+
 #ps –u sumit
+
 #ps –a
+
 #ps –e
+
 #ps -A – ps command will report a snapshot of the current processes. To select all processes use the -A
+
 #ps -Al – Show Long Format Output
+
 #ps -AlF – To turn on extra full mode (it will show command line arguments passed to process):
+
 #ps axu – Print All Process On The Server
+
 #ps -U admin -u admin u – See Every Process Running As User admin
+
 #ps -p 55977 -o comm= – Display The Name of PID 55977
+
 #ps -auxf | sort -nr -k 4 | head -10 – Find Out The Top 10 Memory Consuming Process
+
 #ps -auxf | sort -nr -k 3 | head -10 – Find Out top 10 CPU Consuming Process
 
 # $! – Store the PID of the last background jobs
@@ -314,40 +325,60 @@ Kernel decides how much processor time is required for a process based on the ni
 # Customizing the environment
 
 # set – set statemtent display a complete list of all environment variable
-# PATH =$PATH:/usr/xpg4/bin – Adding new value to old values
-# PS1 =”C> “ – To Change the prompt
-# PS1=’[$PWD] ‘ – To Change the prompt to pwd
-# alias cp=”cp –I” – To Set the alias in bash
+
+#PATH =$PATH:/usr/xpg4/bin – Adding new value to old values
+
+#PS1 =”C> “ – To Change the prompt
+
+#PS1=’[$PWD] ‘ – To Change the prompt to pwd
+
+#alias cp=”cp –I” – To Set the alias in bash
+
 # history – To See the history
+
 # IFS – Field Separators for commands and arguments
-# !! – Repeat Previous commands
-# !2 – Repeat commands 2 from history output
-# !-2 – Execute the commands prior to previous one
-# !v – Execture very last commands beginning withg v
-# $_ – Using last arugement of previous commands
-# mkdir raj
+
+#!! – Repeat Previous commands
+
+#!2 – Repeat commands 2 from history output
+
+#!-2 – Execute the commands prior to previous one
+
+#!v – Execture very last commands beginning withg v
+
+#$_ – Using last arugement of previous commands
+
+# mkdir user
+
 # cd $_
 
-ln – Hard Links and Softlinks
-# ln /usr/bin/perl  /usr/local/bin/perl – To create a hard links from src to dest
-# ls –I  – To Display the node number of files
-# ln –s /usr/bin/perl  /usr/local/bin/perl – To Create a soft link
+# ln – Hard Links and Softlinks
 
-umask – default file and directory permission
-# When you create a files and directories, the permission assigned to them depends on rge system’s default setting..
-# unix has default 666 for regular files & 777 for directories
-# umask –ENTER
-# 022
-This is an octal number which has to be subtracted from system default to obtain the actual default. This becomes 644 (666-022) for ordinary files and 755 ( 777 -022) for directories.
-# User can set the umask such as umask 023.
+#ln /usr/bin/perl  /usr/local/bin/perl – To create a hard links from src to dest
 
-touch – Changing the time stamp
-# touch emp.lst – Create a file name called emp.lst
-# touch 02161430 emp.lst – To Change the time stamp of file for MMDDhhmm format
-# touch –a 02161430 emp.lst – To Change the access time stamp of file for MMDDhhmm format
-# touch –m 02161430 emp.lst – To Change the modification time stamp of file for MMDDhhmm format
+#ls –I  – To Display the node number of files
 
-find – Locating files
+#ln –s /usr/bin/perl  /usr/local/bin/perl – To Create a soft link
+
+# umask – default file and directory permission
+
+#When you create a files and directories, the permission assigned to them depends on rge system’s default setting..
+
+#unix has default 666 for regular files & 777 for directories
+
+#umask –ENTER
+
+# touch – Changing the time stamp
+
+#touch emp.lst – Create a file name called emp.lst
+
+#touch 02161430 emp.lst – To Change the time stamp of file for MMDDhhmm format
+
+#touch –a 02161430 emp.lst – To Change the access time stamp of file for MMDDhhmm format
+
+#touch –m 02161430 emp.lst – To Change the modification time stamp of file for MMDDhhmm format
+
+# find – Locating files
 
 Expression Used by find.
 Expression 	Use
