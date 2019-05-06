@@ -66,7 +66,7 @@ ls –I – Displays inode number
 
 ls –lc – Time of last inode modifcation
 
-Cat – Displaying and creating Files
+# Cat – Displaying and creating Files
 
 cat filename – Displaying file contents
 
@@ -75,9 +75,10 @@ cat –n filename – Displaying file contents with line numbers
 cat > filename – To Create a file name
 
 # More – Paging Output
+
 more filename – To to display the filename contents
 
-Less – Paging Output
+# Less – Paging Output
 
 wc – Counting lines, Words and Characters
 
@@ -127,18 +128,19 @@ tar cvf – foodir | gzip > foo.tar.gz
 
 tar -zxvf apache-activemq-5.1.0-bin.tar.gz
 
-Un-tar and uncompress using gunzip
-# gunzip -c apache-activemq-5.1.0-bin.tar.gz | tar xvf –
+# Un-tar and uncompress using gunzip
+
+gunzip -c apache-activemq-5.1.0-bin.tar.gz | tar xvf –
 
 or alternatively:
 
-# gunzip apache-activemq-5.1.0-bin.tar.gz | tar xvf –
+gunzip apache-activemq-5.1.0-bin.tar.gz | tar xvf –
 
-File Attributes
+# File Attributes
 
 chmod – Changing File Permission
 
-Abbreviations Used by chmod
+# Abbreviations Used by chmod
 
 Category 	Operation 	Permission 	Assigned Number
 
@@ -148,18 +150,21 @@ o – other 	= – Assigns Permission 	x – Execute Permission 	1
 a –all(ugo) 			
 
 Example:
-# chmod u+x filename
-# chmod u+x filename
-# chmod ugo+x filename
-# chmod u+x filename1 filename2 filename3
-# chmod a-x,go+r filename
-# chmod 566 filename
-# chmod 755 filename
-# chmod –R 755 .
-# chmod –R a+x *
 
-Chown – Changing File Ownership
-# chown username filename
+#chmod u+x filename
+#chmod u+x filename
+#chmod ugo+x filename
+#chmod u+x filename1 filename2 filename3
+#chmod a-x,go+r filename
+#chmod 566 filename
+#chmod 755 filename
+#chmod –R 755 .
+#chmod –R a+x *
+
+# Chown – Changing File Ownership
+
+#chown username filename
+
 More example needed.
 
 Shell’s Wild-Cards
@@ -172,7 +177,8 @@ Wild-Card 	Matches
 [!x-z] 	A single character that is not within the ASCII range of the characters x and z
   	
 
-Ps – Process Status
+# Ps – Process Status
+
 Options to ps
 POSIX Options 	Significance
 -f 	Full listing showing the PPID of each process
