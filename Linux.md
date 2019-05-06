@@ -18,7 +18,7 @@ stat – Display file or file system status such as Access, Modify,Change, users
 
 stat <fileName> unix Command
 
-General Commands Frequently Used
+# General Commands Frequently Used
 
 Script – recording your session
 
