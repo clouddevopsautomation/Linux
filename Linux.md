@@ -30,7 +30,7 @@ Printf – Displaying the message
 
 who – Who are the Users
 
-who am I – To know my user name
+whoami – To know my user name
 
 uname – Knowing your machine characteristics
 
@@ -152,18 +152,26 @@ a –all(ugo)
 Example:
 
 #chmod u+x filename
+
 #chmod u+x filename
+
 #chmod ugo+x filename
+
 #chmod u+x filename1 filename2 filename3
+
 #chmod a-x,go+r filename
+
 #chmod 566 filename
+
 #chmod 755 filename
+
 #chmod –R 755 .
+
 #chmod –R a+x *
 
 # Chown – Changing File Ownership
 
-#chown username filename
+chown username filename
 
 More example needed.
 
@@ -188,86 +196,122 @@ POSIX Options 	Significance
 -l 	A long listing showing memory-related information
 
 Example
-# ps -ef
-# ps –u sumit
-# ps –a
-# ps –e
-# ps -A – ps command will report a snapshot of the current processes. To select all processes use the -A
-# ps -Al – Show Long Format Output
-# ps -AlF – To turn on extra full mode (it will show command line arguments passed to process):
-# ps axu – Print All Process On The Server
-# ps -U vivek -u vivek u – See Every Process Running As User Vivek
-# ps -p 55977 -o comm= – Display The Name of PID 55977
-# ps -auxf | sort -nr -k 4 | head -10 – Find Out The Top 10 Memory Consuming Process
-# ps -auxf | sort -nr -k 3 | head -10 – Find Out top 10 CPU Consuming Process
+#ps -ef
+#ps –u sumit
+#ps –a
+#ps –e
+#ps -A – ps command will report a snapshot of the current processes. To select all processes use the -A
+#ps -Al – Show Long Format Output
+#ps -AlF – To turn on extra full mode (it will show command line arguments passed to process):
+#ps axu – Print All Process On The Server
+#ps -U admin -u admin u – See Every Process Running As User admin
+#ps -p 55977 -o comm= – Display The Name of PID 55977
+#ps -auxf | sort -nr -k 4 | head -10 – Find Out The Top 10 Memory Consuming Process
+#ps -auxf | sort -nr -k 3 | head -10 – Find Out top 10 CPU Consuming Process
 
 # $! – Store the PID of the last background jobs
-# echo $$  – To Know the PID of current Shell
-# echo $SHELL – To Know the Current Shell
-# System process easily identifies the ? in the TTY coloumn.
+
+echo $$  – To Know the PID of current Shell
+
+echo $SHELL – To Know the Current Shell
+
+
 # Mechanism of Process Creation
 Fork
 Exec
 Wait
 
-& and nohup – Ruunning jobs in background
-# nohup sort emp.lst $
+# & and nohup – Ruunning jobs in background
+nohup sort emp.lst $
 
-nice – Job execution with low priority
+# nice – Job execution with low priority
+
 Kernel decides how much processor time is required for a process based on the nice value. Possible nice value range is: -20 to 20. A process that has a nice value of -20 is very high priority. The process that has a nice value of 20 is very low priority.
-Use ps axl to display the nice value of all running process as shown below.
-# ps axl
-# nice command is used with & operator to reduce the priority of jobs
-# nice script.sh &
-# ./nice-test.sh &                             Default the nice value of 0
-# nice -10 ./nice-test.sh &            Nice value is 10                 Low priority.
-# nice –10 ./nice-test.sh &          Nice value is -10                High priority.
 
-Kill – killing the process
-# kill PID
-# kill PID1 PID2 PID3
-# kill $i – Killing the last background process
-# kill –s KILL PID – recommended way for killing (SIGKILL)
-# kill -9 PID – same as above but not recommended. (SIGKILL)
-# kill -9 $$  -$$ store the PID of current shell
-# kill –s KILL 0 – kill all the process including the login shell.
-# kill –l – To View the list of all signal names and numbers that are available on your machine.
-# kill %1 – Kill first background jobs
+#Use ps axl to display the nice value of all running process as shown below.
+#ps axl
 
-Jobs
-List the background jobs in following fashion
+#nice command is used with & operator to reduce the priority of jobs
+
+#nice script.sh &
+
+#./nice-test.sh &                             Default the nice value of 0
+
+#nice -10 ./nice-test.sh &            Nice value is 10                 Low priority.
+
+#nice –10 ./nice-test.sh &          Nice value is -10                High priority.
+
+# Kill – killing the process
+
+#kill PID
+
+#kill PID1 PID2 PID3
+
+#kill $i – Killing the last background process
+
+#kill –s KILL PID – recommended way for killing (SIGKILL)
+
+#kill -9 PID – same as above but not recommended. (SIGKILL)
+
+#kill -9 $$  -$$ store the PID of current shell
+
+#kill –s KILL 0 – kill all the process including the login shell.
+
+#kill –l – To View the list of all signal names and numbers that are available on your machine.
+
+#kill %1 – Kill first background jobs
+
+# Jobs
+# List the background jobs in following fashion
+
 [3] +       running                                command
+
 [1] –        running                                command
+
 [2]          running                                command
 
-bg – Convert Jobs to background
-# if you have invoked a command and the prompt has not yet return, you can suspend the job by pressing Ctrl-Z. Observe that job has not been terminated yet; its onl y suspended (“stopped”). Now you can use bg command to push the current foreground job in the background.
-# bg %2 – Sends second job to background
-# bg %sort – Sends sort job to background
+# bg – Convert Jobs to background
 
-fg – bring background job to foreground
-# fg – To bring most recent job to forground
-# fg %1 – Bring First job to foreground
-# fg %2 – Bring second job to foreground
-# fg %sort – Bring sort job to foreground
+#if you have invoked a command and the prompt has not yet return, you can suspend the job by pressing Ctrl-Z. Observe that job has not been terminated yet; its onl y suspended (“stopped”). Now you can use bg command to push the current foreground job in the background.
 
-at – On time execution
-# at 14:08
-at > script.sh
+#bg %2 – Sends second job to background
+
+#bg %sort – Sends sort job to background
+
+# fg – bring background job to foreground
+
+#fg – To bring most recent job to forground
+
+#fg %1 – Bring First job to foreground
+
+#fg %2 – Bring second job to foreground
+
+#fg %sort – Bring sort job to foreground
+
+# at – On time execution
+
+#at 14:08
+
+#at > script.sh
 [ctrl-d]
 
-Batch – execute when system resources are available
-# batch < script.sh
+# Batch – execute when system resources are available
 
-Cron – Schedule and run jobs periodically
-# crontab –e – To Edit the cron tab
-# crontab –l – To Display the cron tab
-# crontab cron.tx – cron.txt contains cron commands
-# crontab –r – To Remove the cron
+#batch < script.sh
 
-Format of crontab – TODO
+# Cron – Schedule and run jobs periodically
 
-Customizing the environment
+#crontab –e – To Edit the cron tab
+
+#crontab –l – To Display the cron tab
+
+#crontab cron.tx – cron.txt contains cron commands
+
+#crontab –r – To Remove the cron
+
+# Format of crontab – TODO
+
+# Customizing the environment
 
 # set – set statemtent display a complete list of all environment variable
 # PATH =$PATH:/usr/xpg4/bin – Adding new value to old values
