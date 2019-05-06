@@ -1,15 +1,21 @@
 # Linux
 
-
-
 General Commands Not Used Frequently
+
 cal – The Calender
+
 bc – The Calculator
+
 file – knowing the file types
+
 cmp – Comparing two files.
+
 comm – Common in two files
+
 dos2unix and unix2dos – Converting between dos and unix
+
 stat – Display file or file system status such as Access, Modify,Change, users and more
+
 # stat <fileName> unix Command
 
 General Commands Frequently Used
