@@ -229,7 +229,9 @@ echo $SHELL – To Know the Current Shell
 
 # Mechanism of Process Creation
 Fork
+
 Exec
+
 Wait
 
 # & and nohup – Ruunning jobs in background
@@ -381,145 +383,201 @@ Kernel decides how much processor time is required for a process based on the ni
 # find – Locating files
 
 Expression Used by find.
+
 Expression 	Use
+
 -inum n 	Having inode number n
+
 -type x 	if of type x can include files, directories or symbolic link
+
 -type f 	If an ordinary file
+
 -perm nnn 	If octal permission match nnn completely
+
 -links n 	If having n links
+
 -user usname 	If owner by usname
+
 -group gname 	If owned by group gname
+
 -size +x[C] 	
+
 -mtime –x 	If modified in less than x days
+
 -newer filename 	If modified after filename
+
 -mmin –x 	If modified in less than x minutes
+
 -atime +x 	If accessed in more than x days
+
 -amin +x 	If accessed in more than x minutes
+
 -name filename 	Filename
-Action 	Significance
+
+# Action 	Significance
+
 -print 	Prints selected file on standard output
+
 -ls 	Executes ls –lids commands on selected files
+
 -exec cmd 	Executes UNIX command cmd followed by {} \;
+
 -ok cmd 	Like –exec, except that command is executed after user confirmation
+
 
 Example
 
-Change File Permissions Recursively
-# find . -type f -exec chmod 644 {} \;
-# find . -type d -exec chmod 755 {} \;
-# find . -name Configuration.php -exec chmod 666 {} \;
+# Change File Permissions Recursively
 
-Find files modified in the last 48 hours, and in current folder and one level below
-# find -maxdepth 2 -type f -mtime -2
+#find . -type f -exec chmod 644 {} \;
 
-To find all files modified in the last 24 hours (last full day) in a particular specific directory and its sub-directories:
-# find /directory_path -mtime -1 –print
+#find . -type d -exec chmod 755 {} \;
 
-To find all files with regular file types only, and modified in the last 24 hours (last full day) in current directory and its sub-directories:
-# find /directory_path -type f -mtime -1 –print
-# find . -type f -mtime -1 –print
+#find . -name Configuration.php -exec chmod 666 {} \;
 
-To find all files that are modified today only (since start of day only, i.e. 12 am), in current directory and its sub-directories:
-# touch -t `date +%m%d0000` /tmp/$$
-# find /tmefndr/oravl01 -type f -newer /tmp/$$
-# rm /tmp/$$
+# Find files modified in the last 48 hours, and in current folder and one level below
 
-To find all files in /home/user/demo directory
-# find /home/user/demo -type f –print
+#find -maxdepth 2 -type f -mtime -2
 
-To find all files in /home/user/demo directory with permission 777, enter:
-# find /home/user/demo -type f -perm 777 –print
+# To find all files modified in the last 24 hours (last full day) in a particular specific directory and its sub-directories:
 
-Apply new permission using the -exec option as follows:
-# find /home/user/demo -type f -perm 777 -print -exec chmod 755 {} \;
+#find /directory_path -mtime -1 –print
 
-To select directories and subdirectories use the following syntax:
-# find /var/www/html -type d -perm 777 -print -exec chmod 755 {} \;
+# To find all files with regular file types only, and modified in the last 24 hours (last full day) in current directory and its sub-directories:
 
-This first Linux find example searches through the root filesystem (“/”) for the file named “Chapter1”. If it finds the file, it prints the location to the screen.
-# find / -name Chapter1 -type f –print
+#find /directory_path -type f -mtime -1 –print
 
-A nice thing to know is that on Linux systems and modern Unix system you no longer need the -print option at the end of the find command, so you can issue it like this:
-# find / -name Chapter1 -type f
+#find . -type f -mtime -1 –print
 
-This next find command searches through the /usr and /home directories for the file named Chapter1:
-# find /usr /home -name Chapter1 -type f
+# To find all files that are modified today only (since start of day only, i.e. 12 am), in current directory and its sub-directories:
 
-To search in the current directory, and all subdirectories, just use the . character to reference the current directory in your find commands, like this:
-# find . -name Chapter1 -type f
+#touch -t `date +%m%d0000` /tmp/$$
 
-This next command searches through the /usr directory for all files that begin with the letters Chapter, followed by anything else. The filename can end with any other combination of characters. It will match filenames such as Chapter, Chapter1, Chapter1.bad, Chapter-in-life, etc.:
-# find /usr -name “Chapter*” -type f
+#find /tmefndr/oravl01 -type f -newer /tmp/$$
 
-This next command searches through the /usr/local directory for files that end with the extension .html. These file locations are then printed to the screen.
-# find /usr/local -name “*.html” -type f
+#rm /tmp/$$
 
-To find all directories named build under the current directory, use this command:
-# find . -type d -name build
+# To find all files in /home/user/demo directory
 
-This command searches through the htdocs and cgi-bin directories for files that end with the extension .cgi. When these files are found, their permission is changed to mode 755 (rwxr-xr-x). This example shows that the find command can easily search through multiple sub-directories (htdocs, cgi-bin) at one time.
-# find htdocs cgi-bin -name “*.cgi” -type f -exec chmod 755 {} \;
+#find /home/user/demo -type f –print
 
-Find and display files last modified les than 90 days ago.
-# find . -name “*” -mtime -3 -print
+# To find all files in /home/user/demo directory with permission 777, enter:
 
-find everything in your home that has been modified more recently than “abc.txt”:
-# find $HOME -newer ~joeuser/lastbatch.txt
+#find /home/user/demo -type f -perm 777 –print
 
-For finding only files from all directories recursively
-# find ./ -type f | wc -l
+# Apply new permission using the -exec option as follows:
 
-For finding only files from all directories recursively
-# find ./ – type d | wc -l
+#find /home/user/demo -type f -perm 777 -print -exec chmod 755 {} \;
 
-How to Return a message when a file is not found using find command? OR
-Find command return type OR
-when the file is not found i want it to return some value OR
-# find . -name raj.txt > raj.txt
-# counter= `cat abc.txt | wc -l’
-# if [$counter -gt 0]
-# then
-#                echo “File is found”
-# else
-#                echo “File is not found”
-# fi
-That’s nice, but what if I want to see the last modification time of these files, or their filesize? No problem, I just add the “ls -ld” command to my find command, like this:
-find . -name “*.pl” -exec ls -ld {} \;
+# To select directories and subdirectories use the following syntax:
 
-Count Total number of files in Directory and Subdirectory
-# find . -type f | wc –l
+#find /var/www/html -type d -perm 777 -print -exec chmod 755 {} \;
 
-Count Specific extention files in Directory and Subdirectory
-# find . -type f -name \*.mnp |wc –l
+# This first Linux find example searches through the root filesystem (“/”) for the file named “Chapter1”. If it finds the file, it prints the location to the screen.
 
-Count only Directory
-# find . -type d | wc –l
+#find / -name Chapter1 -type f –print
 
-head – Displaying the beginning of a file
-# head –n 3 filename
-# vi `ls –t` | head –n 1` – Opens last modified file for editing
+# A nice thing to know is that on Linux systems and modern Unix system you no longer need the -print option at the end of the find command, so you can issue it like this:
 
-tail – Displaying the end of a file
-# tail -3 filename
-# tail –f filename             Monitering file live
+#find / -name Chapter1 -type f
 
-Cut
-# cut –c 6-12,24-32 filename – Cutting column
-# cut –d \| -f 2,3 filename            – Cutting fields
-# cut –d “|” –f 1,4- filename –To cut out the fields numbered 1,4,5 and 6.
+# This next find command searches through the /usr and /home directories for the file named Chapter1:
 
-Sort – Ordering a file
-Sort Options
-Option 	Description
+#find /usr /home -name Chapter1 -type f
+
+#To search in the current directory, and all subdirectories, just use the . character to reference the current directory in your find commands, like this:
+
+#find . -name Chapter1 -type f
+
+# This next command searches through the /usr directory for all files that begin with the letters Chapter, followed by anything else. The filename can end with any other combination of characters. It will match filenames such as Chapter, Chapter1, Chapter1.bad, Chapter-in-life, etc.:
+
+#find /usr -name “Chapter*” -type f
+
+# This next command searches through the /usr/local directory for files that end with the extension .html. These file locations are then printed to the screen.
+
+#find /usr/local -name “*.html” -type f
+
+# To find all directories named build under the current directory, use this command:
+
+#find . -type d -name build
+
+# This command searches through the htdocs and cgi-bin directories for files that end with the extension .cgi. When these files are found, their permission is changed to mode 755 (rwxr-xr-x). This example shows that the find command can easily search through multiple sub-directories (htdocs, cgi-bin) at one time.
+
+#find htdocs cgi-bin -name “*.cgi” -type f -exec chmod 755 {} \;
+
+# Find and display files last modified les than 90 days ago.
+
+#find . -name “*” -mtime -3 -print
+
+# find everything in your home that has been modified more recently than “abc.txt”:
+
+#find $HOME -newer ~joeuser/lastbatch.txt
+
+# For finding only files from all directories recursively
+
+#find ./ -type f | wc -l
+
+# For finding only files from all directories recursively
+
+#find ./ – type d | wc -l
+
+# That’s nice, but what if I want to see the last modification time of these files, or their filesize? No problem, I just add the “ls -ld” command to my find command, like this:
+
+#find . -name “*.pl” -exec ls -ld {} \;
+
+# Count Total number of files in Directory and Subdirectory
+
+#find . -type f | wc –l
+
+# Count Specific extention files in Directory and Subdirectory
+
+#find . -type f -name \*.mnp |wc –l
+
+# Count only Directory
+
+#find . -type d | wc –l
+
+# head – Displaying the beginning of a file
+
+#head –n 3 filename
+
+#vi `ls –t` | head –n 1` – Opens last modified file for editing
+
+# tail – Displaying the end of a file
+
+#tail -3 filename
+
+#tail –f filename             Monitering file live
+
+# Cut
+
+#cut –c 6-12,24-32 filename – Cutting column
+
+#cut –d \| -f 2,3 filename            – Cutting fields
+
+#cut –d “|” –f 1,4- filename –To cut out the fields numbered 1,4,5 and 6.
+
+# Sort – Ordering a file
+# Sort Options
+# Option 	Description
 -tchar 	Use delimiter char to identify fields
+
 -k n 	Sorts on nth field
+
 -k m,n 	Start sort on mth field and end sort on nth field
+
 -k m.n 	Start sort on nth column of mth field
+
 -u 	Removes repeated lines
+
 -n 	Sort numerically
+
 -r 	Reverse sort order
+
 -m list 	Merge sorted files in list
+
 -c 	Checks of file sorted
+
 -o filename 	Place output in file filename
 
 Examples:
