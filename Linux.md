@@ -1,6 +1,6 @@
 # Linux
 
-General Commands Not Used Frequently
+# General Commands Not Used Frequently
 
 cal – The Calender
 
@@ -16,7 +16,7 @@ dos2unix and unix2dos – Converting between dos and unix
 
 stat – Display file or file system status such as Access, Modify,Change, users and more
 
-# stat <fileName> unix Command
+stat <fileName> unix Command
 
 General Commands Frequently Used
 
@@ -34,7 +34,7 @@ who am I – To know my user name
 
 uname – Knowing your machine characteristics
 
-# uname –a  – To Print all info.
+uname –a  – To Print all info.
 
 tty – knowing your terminal
 
@@ -46,84 +46,86 @@ mkdir – Making directories
 
 rmdir – removing directories
 
-ls – Listing Directory Contents
+# ls – Listing Directory Contents
 
-# ls –F – Marks executables with *, directories with / and symbolic links with @ at the end of file name.
+ls –F – Marks executables with *, directories with / and symbolic links with @ at the end of file name.
 
-# ls – a – Shows all filesnames including beginning with a dot.
+ls – a – Shows all filesnames including beginning with a dot.
 
-# ls –R – Recursive display list of files and folders
+ls –R – Recursive display list of files and folders
 
-# ls -1 – one filename in each line
+ls -1 – one filename in each line
 
-# ls –l long listing + time of last file modification
+ls –l long listing + time of last file modification
 
-# ls –t Sorts filenames by last modification time
+ls –t Sorts filenames by last modification time
 
-# ls –u – Sorts filenames by last access time
+ls –u – Sorts filenames by last access time
 
-# ls –I – Displays inode number
+ls –I – Displays inode number
 
-# ls –lc – Time of last inode modifcation
+ls –lc – Time of last inode modifcation
 
 Cat – Displaying and creating Files
 
-# cat filename – Displaying file contents
+cat filename – Displaying file contents
 
-# cat –n filename – Displaying file contents with line numbers
+cat –n filename – Displaying file contents with line numbers
 
-# cat > filename – To Create a file name
+cat > filename – To Create a file name
 
-More – Paging Output
-# more filename – To to display the filename contents
+# More – Paging Output
+more filename – To to display the filename contents
 
 Less – Paging Output
 
 wc – Counting lines, Words and Characters
 
-# -l – Option counts only the number of lines
+-l – Option counts only the number of lines
 
-# -w – Option counts only the words.
+-w – Option counts only the words.
 
-# -c – Options counts only the characters.
+-c – Options counts only the characters.
 
-cp – copying a files
+# cp – copying a files
 Options
-# -p – Copy the files including preserve the mode, ownership and permissions.
+-p – Copy the files including preserve the mode, ownership and permissions.
 
-# -R – Copying Directory Structure
+-R – Copying Directory Structure
 
-gzip and gunzip – Compressing and Decompressing Files
-# gzip filename
+# gzip and gunzip – Compressing and Decompressing Files
+gzip filename
 
-# gzip –l – To find out how much of the compression was archived.
+gzip –l – To find out how much of the compression was archived.
 
-# gzip –d filename – To Decompress a file
+gzip –d filename – To Decompress a file
 
-# gunzip filename – To Decompress a file
+gunzip filename – To Decompress a file
 
-# gzip –R dir – To Compress Recursive
+gzip –R dir – To Compress Recursive
 
-Tar – The archival Program
-# -c – To create a archive
+# Tar – The archival Program
+-c – To create a archive
 
-# -x – Extract files from archive
+-x – Extract files from archive
 
-# -t – Display fils in archive
+-t – Display fils in archive
 
-# -v – verbose
+-v – verbose
 
-# -f – name of the arch filename .tar
+-f – name of the arch filename .tar
 
-# tar –cvf filename.tar filename1 filename2
+tar –cvf filename.tar filename1 filename2
 
-# tar –xvf filename.tar
+tar –xvf filename.tar
 
-Create tar and gzip
-# tar cvf – foodir | gzip > foo.tar.gz
+# Create tar and gzip
 
-Un-tar and gunzip
-# tar -zxvf apache-activemq-5.1.0-bin.tar.gz
+tar cvf – foodir | gzip > foo.tar.gz
+
+# Un-tar and gunzip
+
+tar -zxvf apache-activemq-5.1.0-bin.tar.gz
 
 Un-tar and uncompress using gunzip
 # gunzip -c apache-activemq-5.1.0-bin.tar.gz | tar xvf –
