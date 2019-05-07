@@ -1,4 +1,4 @@
-1 – SYSTEM INFORMATION
+#  1 – SYSTEM INFORMATION
 
 # Display Linux system information
 uname -a
@@ -33,7 +33,7 @@ w
 # Who you are logged in as
 whoami
 
-2 – HARDWARE INFORMATION
+# 2 – HARDWARE INFORMATION
 
 # Display messages in kernel ring buffer
 dmesg
@@ -65,7 +65,7 @@ hdparm -tT /dev/sda
 # Test for unreadable blocks on disk sda
 badblocks -s /dev/sda
 
-3 – PERFORMANCE MONITORING AND STATISTICS
+# 3 – PERFORMANCE MONITORING AND STATISTICS
 
 # Display and manage the top processes
 top
@@ -103,7 +103,7 @@ free -h
 # Execute "df -h", showing periodic updates
 watch df -h
 
-4 – USER INFORMATION AND MANAGEMENT
+# 4 – USER INFORMATION AND MANAGEMENT
 
 # Display the user and group ids of your current user.
 id
@@ -369,7 +369,7 @@ rsync -a /home /backups/
 # Synchronize files/directories between the local and remote system with compression enabled
 rsync -avz /home server:/backups/
 
-14 – DISK USAGE
+# 14 – DISK USAGE
 
 # Show free and used space on mounted filesystems
 df -h
