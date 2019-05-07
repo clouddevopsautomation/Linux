@@ -144,9 +144,18 @@ chmod – Changing File Permission
 
 Category 	Operation 	Permission 	Assigned Number
 
-u -user 	+ – Assigns Permission 	r – Read permission 	4
-g -group 	–  – Assigns Permission 	w – Write Permission 	2
-o – other 	= – Assigns Permission 	x – Execute Permission 	1
+u -user 	+ – Assigns Permission 	
+
+r – Read permission 	4
+
+g -group 	–  – Assigns Permission 	
+
+w – Write Permission 	2
+
+o – other 	= – Assigns Permission 
+
+x – Execute Permission 	1
+
 a –all(ugo) 			
 
 Example:
